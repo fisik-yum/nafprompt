@@ -16,11 +16,10 @@
 package main
 
 import (
-	"fmt"
 	"nafprompt/constructor"
 	"os"
 )
 
 func main() {
-	fmt.Fprint(os.Stdout, constructor.Parse_string("{text:red;;bold}{user}@{host}{text:green;;bold}{module:go; (goproject %s)} {text:blue;;bold}/#/ {text:;;}"))
+	os.Stdout.Write([]byte(constructor.Parse_string("{:text:red;;bold}{user}@{host}{:text:green;;bold} {:go:(go: %s) }{:text:blue;;bold}/#/ {:text:;;}")))
 }
