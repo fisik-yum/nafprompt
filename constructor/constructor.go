@@ -15,7 +15,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 package constructor
 
 import (
-	"nafprompt/effects"
 	"nafprompt/modules"
 	"regexp"
 	"strings"
@@ -39,11 +38,16 @@ func pkeywords(s string) []string {
 	return re.FindAllString(s, -1)
 }
 
+func pmodname(s string) string {
+	re := regexp.MustCompile(`\:[^:]*\:`) //keyword enclosed in curly braces
+	r := re.FindString(s)
+	return r
+}
+
 func replaceTree(kw string) string { //keyword replacement logic
-	if strings.HasPrefix(kw, "{text:") {
-		return EscSeq(strings.ToLower(kw[6 : len(kw)-1]))
-	} else if strings.HasPrefix(kw, "{module:") {
-		return modules.RequestModuleData(strings.Split(strings.ToLower(kw[8:len(kw)-1]), ";"))
+	if strings.HasPrefix(kw, "{:") { //now we only have one janky branch for module logic
+		modname := pmodname(kw)
+		return modules.Request(modname[1:len(modname)-1], strings.Split(kw[len(modname)+1:len(kw)-1], ";"))
 	}
 	switch kw {
 	case "{user}":
@@ -70,20 +74,6 @@ func replaceTree(kw string) string { //keyword replacement logic
 		return `\#`
 
 	default:
-		/*a := strings.Fields(kw[1 : len(kw)-1])
-		c, _ := exec.Command(a[0], a[1:]...).Output()
-		return strings.TrimRight(string(c), "\r\n")*/
 		return kw
 	}
-}
-
-func EscSeq(option string) string { //color syntax is {text:fgcolor;bgcolor;formatting}
-	l := strings.Split(option, ";")
-
-	for len(l) < 3 {
-		l = append(l, "")
-	}
-
-	return effects.CreateCode(effects.LookUp(l[0], l[1], l[2]))
-
 }
