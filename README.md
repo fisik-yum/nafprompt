@@ -37,7 +37,7 @@ In `nafprompt`, configuration and styling is achieved by wrapping appropriate ke
 `{shellname}` displays the name of the shell\
 `{time24}` displays 24-Hour time\
 `{time12}` displays 12-Hour time\
-`{time12m}` displays 12-Hour time with AM/PM\
+`{time12m}` displays 12-Hour time with AM/PM
 
 More information can be found [here](https://tldp.org/HOWTO/Bash-Prompt-HOWTO/bash-prompt-escape-sequences.html)
 
