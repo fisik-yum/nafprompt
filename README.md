@@ -1,3 +1,4 @@
+
 ![](assets/20230101_203828_screenshot_1.png)
 
 # notafancy-prompt
@@ -26,17 +27,17 @@ In `nafprompt`, configuration and styling is achieved by wrapping appropriate ke
 
 ##### Simple Keywords
 
-`{user}` displays username
-`{host}` displays host-name
-`{cwd}` displays current working directory
-`{basename}` displays the basename of `{cwd}`
-`{cmdnum}` displays the command number
-`{date}` displays date in Weekday Month Date format
-`{device}` displays basename of shell's terminal device
-`{shellname}` displays the name of the shell
-`{time24}` displays 24-Hour time
-`{time12}` displays 12-Hour time
-`{time12m}` displays 12-Hour time with AM/PM
+`{user}` displays username\
+`{host}` displays host-name\
+`{cwd}` displays current working directory\
+`{basename}` displays the basename of `{cwd}`\
+`{cmdnum}` displays the command number\
+`{date}` displays date in Weekday Month Date format\
+`{device}` displays basename of shell's terminal device\
+`{shellname}` displays the name of the shell\
+`{time24}` displays 24-Hour time\
+`{time12}` displays 12-Hour time\
+`{time12m}` displays 12-Hour time with AM/PM\
 
 More information can be found [here](https://tldp.org/HOWTO/Bash-Prompt-HOWTO/bash-prompt-escape-sequences.html)
 
