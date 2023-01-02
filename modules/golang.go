@@ -15,16 +15,21 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 package modules
 
 import (
-	"fmt"
 	"os/exec"
 	"strings"
 )
 
-func go_mod(opts []string) string {
+type goModule struct{}
+
+func (g goModule) data(args []string) string {
 	c, _ := exec.Command("go", "list", "-m").Output()
 	if strings.HasPrefix(string(c), "command-line-arguments") {
 		return ""
 	}
-	return fmt.Sprintf(opts[0], strings.TrimRight(string(c), "\r\n"))
+	for len(args) < 1 {
+		args = append(args, "%s")
+	}
+	return strings.ReplaceAll(args[0], "%s", strings.TrimRight(string(c), "\r\n"))
+	//return strings.TrimRight(string(c), "\r\n")
 
 }
