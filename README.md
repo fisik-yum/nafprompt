@@ -17,7 +17,10 @@ PROMPT_COMMAND=naf_prompt
 
 ### Configuration
 
-`nafprompt`'s prompt is hard-coded for the time being. Changing line 24 of `main.go` changes the prompt displayed.
+`nafprompt` can be configured by setting the `PROMPT` variable in your `.bashrc`. If left unconfigured or blank, it will default to the hardcoded prompt.
+```
+export PROMPT="your-prompt-here"
+```
 
 #### Configuration Syntax
 
