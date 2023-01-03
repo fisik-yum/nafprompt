@@ -21,5 +21,5 @@ import (
 )
 
 func main() {
-	os.Stdout.Write([]byte(constructor.Parse_string("{:text:red;;bold}{user}@{host}{:text:green;;bold} {:go:(go: %s) }{:text:blue;;bold}/#/ {:text:;;}")))
+	os.Stdout.Write([]byte(constructor.Parse_string("{:text:red;;bold}{user}@{host}{:text:green;;bold} {:go:(go: %s) }{:text:cyan;;bold}{:git:(git: %b) }{:text:blue;;bold}/#/ {:text:;;}")))
 }

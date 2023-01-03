@@ -25,6 +25,7 @@ type module interface {
 func init() {
 	register("go", goModule{})
 	register("text", textModule{})
+	register("git", gitModule{})
 }
 
 func Request(id string, opts []string) string {

@@ -26,6 +26,9 @@ func (g goModule) data(args []string) string {
 	if strings.HasPrefix(string(c), "command-line-arguments") {
 		return ""
 	}
+	if args[0] == "" {
+		args = make([]string, 0)
+	}
 	for len(args) < 1 {
 		args = append(args, "%s")
 	}
