@@ -16,37 +16,26 @@ package constructor
 
 import (
 	"nafprompt/modules"
-	"regexp"
 	"strings"
 )
 
-func Parse_string(prompt string) string {
-	pwords := pkeywords(prompt)
-	for x := range pwords {
-		a := decide_replacement(pwords[x], replaceTree)
-		prompt = strings.ReplaceAll(prompt, pwords[x], a)
-	}
-	return prompt
-}
-
-func decide_replacement(keyword string, repfunc func(k string) string) string {
-	return repfunc(keyword)
-}
-
-func pkeywords(s string) []string {
-	re := regexp.MustCompile(`\{[^}]*\}`) //keyword enclosed in curly braces
-	return re.FindAllString(s, -1)
+func Lookup(keyword string) string {
+	return replaceTree(keyword)
 }
 
 func pmodname(s string) string {
-	re := regexp.MustCompile(`\:[^:]*\:`) //keyword enclosed in curly braces
-	r := re.FindString(s)
-	return r
+    r:=[]rune(s)
+    for i:= range r{
+        if r[i] == ':' && i!=0{
+            return string(r[0:i+1])
+        }
+    }
+	return ""
 }
 
 func replaceTree(kw string) string { //keyword replacement logic
 	if strings.HasPrefix(kw, "{:") { //now we only have one janky branch for module logic
-		modname := pmodname(kw)
+        modname := pmodname(kw[1:])
 		return modules.Request(modname[1:len(modname)-1], strings.Split(kw[len(modname)+1:len(kw)-1], ";"))
 	}
 	switch kw {
