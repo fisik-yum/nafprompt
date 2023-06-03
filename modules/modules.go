@@ -21,7 +21,7 @@ type module interface {
 }
 
 // modules are compiled into the binary, and must be registered using the function register(name, module)
-// the name must be uniques as it is used as an identifier to request informations
+// the name must be unique as it is used as an identifier to request information
 func init() {
 	register("go", goModule{})
 	register("text", textModule{})
@@ -29,9 +29,6 @@ func init() {
 }
 
 func Request(id string, opts []string) string {
-	//return strings.ReplaceAll(substring, "%s", modlist[id].data())
-	//fmt.Println(opts)
-	//fmt.Println(len(opts))
 	return modlist[id].data(opts)
 }
 
