@@ -16,7 +16,7 @@
 package main
 
 import (
-	"nafprompt/constructor"
+	"nafprompt/parser2"
 	"os"
 	"strings"
 )
@@ -31,5 +31,5 @@ func init() {
 }
 
 func main() {
-	os.Stdout.Write([]byte(constructor.Parse_string(prompt)))
+	os.Stdout.Write([]byte(string(parser2.Parse([]rune(prompt)))))
 }

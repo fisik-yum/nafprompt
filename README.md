@@ -1,9 +1,7 @@
 # notafancy-prompt
 
 nafprompt is a "minimal" "prompt" for the bash shell that leverages its builtin functionality. The goal is to try to implement as many features as possible only using libraries included in the start golang distribution.
-In short, nafprompt tries to make configuring your prompt easier, while providing some QoL features.
 There are many projects that provide a Powerline prompt, and hence this program does not aim to provide that feature.
-As of 3/2/2023 I have deemed this project mostly feature complete. Any commits to this repository will mainly focus around the `shellex/` directory which has scripts that extend the functionality of `nafprompt`.
 
 #### Installation
 

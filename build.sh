@@ -7,7 +7,7 @@ then
 else
 	mkdir build/
 fi
-go build #-ldflags "-s -w"
+go build -ldflags "-s -w"
 echo "Copying files"
 mv "$project" build/
 cp -r shellex/* build 
