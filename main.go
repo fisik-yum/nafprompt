@@ -18,16 +18,12 @@ package main
 import (
 	"nafprompt/parser2"
 	"os"
-	"strings"
 )
 
 var prompt string
 
 func init() {
 	prompt = os.Getenv("PROMPT")
-	if strings.ReplaceAll(prompt, " ", "") == "" {
-		prompt = "{:text:red;;bold}{user}@{host}{:text:green;;bold} {:go:(go: %s) }{:text:cyan;;bold}{:git:(git: %b) }{:text:blue;;bold}/#/ {:text:;;}"
-	}
 }
 
 func main() {

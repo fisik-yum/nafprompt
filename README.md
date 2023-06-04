@@ -17,14 +17,14 @@ PROMPT_COMMAND=naf_prompt
 
 ### Configuration
 
-`nafprompt` can be configured by setting the `PROMPT` variable in your `.bashrc`. If left unconfigured or blank, it will default to the hardcoded prompt.
+`nafprompt` can be configured by setting the `PROMPT` variable in your `.bashrc`. There is no default prompt, and if unset it will be blank.
 ```
 export PROMPT="your-prompt-here"
 ```
 
 #### Configuration Syntax
 
-In `nafprompt`, configuration and styling is achieved by wrapping appropriate keywords in `{}` curly braces, with colons and semicolons used to pass options to `constructor.go`
+In `nafprompt`, configuration and styling is achieved by wrapping appropriate keywords in `{}` curly braces, with colons and semicolons used to pass options to `constructor.go`. Nonexistent configuration options will be ignored.
 
 ##### Simple Keywords
 
@@ -78,7 +78,8 @@ For most configurations, only `bold`, `dim`, `underline`, and `invert` may be ne
 
 "Modules" attempt to display changing information. Currently, only one module exists. The general syntax for a module is:
 `{:id:arg1;arg2}`\
-The use of a module is indicated by enclosing its name (or ID) in colons. In this fashion text coloring is also treated like a module although it can be considered a standard function.
+The use of a module is indicated by enclosing its name (or ID) in colons. In this fashion text coloring is also treated like a module although it can be considered a standard function. A nonexistent module will throw an error, so note which modules you have compiled into your binary.
+The template-inspired syntax of nafprompt allows semi-complex nesting of various module outputs inside of each other, thanks to the rewritten template interpreting code.
 
 ###### Module: Go Project
 
