@@ -24,18 +24,18 @@ func Lookup(keyword string) string {
 }
 
 func pmodname(s string) string {
-    r:=[]rune(s)
-    for i:= range r{
-        if r[i] == ':' && i!=0{
-            return string(r[0:i+1])
-        }
-    }
+	r := []rune(s)
+	for i := range r {
+		if r[i] == ':' && i != 0 {
+			return string(r[0 : i+1])
+		}
+	}
 	return ""
 }
 
 func replaceTree(kw string) string { //keyword replacement logic
 	if strings.HasPrefix(kw, "{:") { //now we only have one janky branch for module logic
-        modname := pmodname(kw[1:])
+		modname := pmodname(kw[1:])
 		return modules.Request(modname[1:len(modname)-1], strings.Split(kw[len(modname)+1:len(kw)-1], ";"))
 	}
 	switch kw {
