@@ -93,5 +93,8 @@ This requires the `go` binary to be in your path.
 This requires the `git` binary to be in your path.
 `displaystring` can be formatted with `%b` and `%c` to include branch and commit, respectively.
 
+###### Module: (Rudimentary) Command output
+`{:exec:displaystring;command}` pipes the stdout of a specified command into the prompt. Use `%s` to format. I assume this will not be very useful as it might cause problems with args that contain whitespace. 
+
 ### Screenshots
 ![](assets/screenshot_1.png)

@@ -26,6 +26,7 @@ func init() {
 	register("go", goModule{})
 	register("text", textModule{})
 	register("git", gitModule{})
+	register("exec", execModule{})
 }
 
 func Request(id string, opts []string) string {
