@@ -16,7 +16,7 @@
 package main
 
 import (
-	"nafprompt/parser2"
+	"nafprompt/parser3"
 	"os"
 )
 
@@ -27,5 +27,6 @@ func init() {
 }
 
 func main() {
-	os.Stdout.Write([]byte(string(parser2.Parse([]rune(prompt)))))
+	a, _ := parser3.Parse([]rune(prompt), 0)
+	os.Stdout.Write([]byte(a))
 }

@@ -34,32 +34,32 @@ func pmodname(s string) string {
 }
 
 func replaceTree(kw string) string { //keyword replacement logic
-	if strings.HasPrefix(kw, "{:") { //now we only have one janky branch for module logic
-		modname := pmodname(kw[1:])
-		return modules.Request(modname[1:len(modname)-1], strings.Split(kw[len(modname)+1:len(kw)-1], ";"))
+	if strings.HasPrefix(kw, ":") { //now we only have one janky branch for module logic
+		modname := pmodname(kw)
+		return modules.Request(modname[1:len(modname)-1], strings.Split(kw[len(modname):], ";"))
 	}
 	switch kw {
-	case "{user}":
+	case "user":
 		return `\u`
-	case "{host}":
+	case "host":
 		return `\h`
-	case "{date}":
+	case "date":
 		return `\d`
-	case "{device}":
+	case "device":
 		return `\l`
-	case "{shellname}":
+	case "shellname":
 		return `\s`
-	case "{time24}":
+	case "time24":
 		return `\t`
-	case "{time12}":
+	case "time12":
 		return `\T`
-	case "{time12m}":
+	case "time12m":
 		return `\@`
-	case "{cwd}":
+	case "cwd":
 		return `\w`
-	case "{basename}":
+	case "basename}":
 		return `\W`
-	case "{cmdnum}":
+	case "cmdnum":
 		return `\#`
 
 	default:
